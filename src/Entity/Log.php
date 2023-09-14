@@ -36,6 +36,9 @@ class Log
     #[ORM\Column(length: 5000)]
     private ?string $datos = null;
 
+    #[ORM\Column(length: 10, nullable:true)]
+    private ?string $entorno = null;
+
     #[ORM\ManyToOne(targetEntity: Cliente::class, inversedBy: 'clientes')]
     private Cliente $cliente;
 
@@ -199,6 +202,20 @@ class Log
         $this->cliente = $cliente;
     }
 
+    /**
+     * @return string|null
+     */
+    public function getEntorno(): ?string
+    {
+        return $this->entorno;
+    }
 
+    /**
+     * @param string|null $entorno
+     */
+    public function setEntorno(?string $entorno): void
+    {
+        $this->entorno = $entorno;
+    }
 
 }

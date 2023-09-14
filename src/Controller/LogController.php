@@ -32,6 +32,7 @@ class LogController extends AbstractController
                     $log->setRuta($logParametro['ruta']);
                     $log->setFechaRegistro($fecha);
                     $log->setDatos($logParametro['jsonRegistro']);
+                    $log->setEntorno($logParametro['entorno']??null);
                     $em->persist($log);
                 }
                 $em->flush();
